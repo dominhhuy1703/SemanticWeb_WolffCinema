@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>Welcome</h1>
+        <p class="lead">Welcome to Wolff Cinema. The best place to enjoy your time</p>
+        <br/>
+        <h2>{{title}}</h2>
+    </div>
+
+    <h3>Movies</h3>
+    <div class="row">
+        {% for item in list_movies %}
+            <div class="col-md-2" style="height: 220px;">
+                <img class="search_img" src="{{item['img']}}">
+                <p style="margin-bottom: 10px;"><a href="/film/{{item['movie']['value']}}">{{ item['title']['value'] }}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+    <h3>People</h3>
+    <div class="row">
+        {% for item in list_person %}
+            <div class="col-md-2" style="float: left;">
+                <img class="search_img" src="{{item['img']}}">
+                <p><a href="/person/{{item['person']['value']}}">{{ item['name']['value'] }}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
